@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function SendPoints()
+		{
+			var ids = new Array ("x1", "y1", "z1", "x2", "y2", "z2", "x3", "y3", "z3", "x4", "y4", "z4");
+			var arg = "";
+			var entry = "";
+			var valid = true;
+
+			for (i in ids)
+			{
+				entry = document.getElementById(ids[i]).value
+				if ((entry.length == 0) || isNaN(entry))
+				{
+					valid = false;
+				}
+				else
+				{
+					arg = arg + entry + ",";
+				}
+			}
+
+			if (!valid)
+			{
+				arg = "";
+			}
+			window.location = 'skp:create_face@' + arg;
+		}
+	</script>
+</head>
+
+<body>
+	Point 1:
+	<input type="text" id="x1" value="0.0" size="10" maxlength="6">
+	<input type="text" id="y1" value="0.0" size="10" maxlength="6">
+	<input type="text" id="z1" value="0.0" size="10" maxlength="6">
+
+	Point 2:
+	<input type="text" id="x2" value="10.0" size="10" maxlength="6">
+	<input type="text" id="y2" value="0.0" size="10" maxlength="6">
+	<input type="text" id="z2" value="0.0" size="10" maxlength="6">
+
+	Point 3:
+	<input type="text" id="x3" value="10.0" size="10" maxlength="6">
+	<input type="text" id="y3" value="10.0" size="10" maxlength="6">
+	<input type="text" id="z3" value="0.0" size="10" maxlength="6">
+
+	Point 4:
+	<input type="text" id="x4" value="0.0" size="10" maxlength="6">
+	<input type="text" id="y4" value="10.0" size="10" maxlength="6">
+	<input type="text" id="z4" value="0.0" size="10" maxlength="6">
+
+	<input type="submit" onclick="SendPoints();" value="Create Face">
+</body>
+</html>
